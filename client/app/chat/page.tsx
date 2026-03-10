@@ -9,7 +9,9 @@ import { Card } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area"
 
 function connectWs() {
-  return io("http://localhost:3001")
+  return io("http://localhost",{
+  transports: ["websocket"]
+})
 }
 
 type messageProp = {
@@ -45,6 +47,7 @@ export default function Page() {
       })
 
       socket.current?.on("chatMessage", (msg: messageProp) => {
+        if(msg.userId==userId) return;
         setMessages((prev) => [...prev, msg])
       })
     })
@@ -68,7 +71,7 @@ export default function Page() {
 
   return (
     <div className="flex justify-center items-center h-screen bg-muted">
-  <Card className="w-[500px] h-[650px] flex flex-col p-4">
+  <Card className="w-125 h-162.5 flex flex-col p-4">
 
     {/* Chat Header */}
     <div className="text-lg font-semibold border-b pb-2">

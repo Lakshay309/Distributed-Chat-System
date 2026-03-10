@@ -68,7 +68,7 @@ export default function JoinRoomForm() {
               />
             </div>
 
-            <Button type="submit" variant={"secondary"} className="w-full">
+            <Button type="submit" className="w-full hover:cursor-pointer">
               Join Room
             </Button>
 
