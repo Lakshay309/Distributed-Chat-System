@@ -54,6 +54,9 @@ Frontend
 * Redis Pub/Sub for cross-server communication
 * Nginx load balancing
 * Fully containerized using Docker
+<img width="1890" height="923" alt="image" src="https://github.com/user-attachments/assets/9e2cc81d-ad89-4232-9d84-2b43f5e6df7c" />
+<img width="544" height="541" alt="image" src="https://github.com/user-attachments/assets/6490a669-4c36-40bb-a14b-1b7aee07cade" />
+ Multiple Server Communication
 
 ---
 
