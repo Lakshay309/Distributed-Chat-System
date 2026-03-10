@@ -12,16 +12,24 @@ const io = new Server(server,{
         origin:"*"
     }
 });
-
+type messageProp ={
+  msg:string,
+  userId:string,
+  roomId:string,
+  time:Date,
+}
 io.on('connection',(socket)=>{
     console.log('a user connected',socket.id)
 
     socket.on("JoinRoom",async (userId:string,roomId:string)=>{
         console.log(`${userId} join ${roomId}`);
         await socket.join(roomId)
-        // to all the users
-         
+
         socket.to(roomId).emit('roomNotice',userId,roomId)
+    })
+    socket.on("chatMessage",(msg:messageProp)=>{
+        console.log(msg)
+        socket.to(msg.roomId).emit('chatMessage',msg)
     })
 })
 
